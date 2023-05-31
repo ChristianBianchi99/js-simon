@@ -1,5 +1,6 @@
 // DICHIARAZIONE VARIABILI
 let winNumbers= [];
+let userRightAnswer= [];
 let userNumbers;
 let points= 0;
 let max= 100;
@@ -31,8 +32,10 @@ function userAnswers(){
         // CALCOLO IL PUNTEGGIO
         if(winNumbers.includes(input)){
             points++
+            userRightAnswer.push(input)
         }
     }
+    
     return input
 }
 
@@ -54,5 +57,5 @@ setTimeout( function(){
 setTimeout( function(){
     userAnswers();
     // Visualizzazione nel dom del punteggio
-    message.innerHTML=`Complimenti! Hai totalizzato un punteggio di: ${points}`
+    message.innerHTML=`Complimenti! Hai totalizzato un punteggio di: ${points}, le risposte corrette che hai dato sono: ${userRightAnswer}`
 }, (seconds + 1) * 1000)
